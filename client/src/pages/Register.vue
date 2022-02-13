@@ -68,11 +68,6 @@
               label="REGISTER"
             />
           </q-card-actions>
-          <q-card-section class="text-center q-pa-none">
-            <p class="text-grey-6">
-              No estàs registrat? <a href="#/register">Registra't</a>
-            </p>
-          </q-card-section>
         </q-card>
       </div>
     </div>
