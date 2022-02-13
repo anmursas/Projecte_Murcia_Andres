@@ -23,7 +23,7 @@
                 type="dni"
                 label="DNI"
                 lazy-rules
-                :rules="[required, this]"
+                :rules="[required, this.dniValido]"
               />
               <q-input
                 filled
@@ -102,6 +102,15 @@ export default defineComponent({
       this.visibility = !this.visibility
       this.password = this.visibility ? 'text' : 'password'
       this.visibilityIcon = this.visibility ? 'visibility_off' : 'visibility'
+    },
+    dniValido (val) {
+      const validDni = /^[XYZ]?\d{8}[A-Z]$/
+      val = val.toUpperCase()
+      if (validDni.test(val) === true) {
+        return true
+      } else {
+        return 'DNI Incorrecto'
+      }
     }
   }
 })

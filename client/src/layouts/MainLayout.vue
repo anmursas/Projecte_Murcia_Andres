@@ -16,7 +16,7 @@
         </q-toolbar-title>
 
         <div>
-          {{ fecha }}
+          {{ dateNow }}
           </div>
       </q-toolbar>
     </q-header>
@@ -34,7 +34,7 @@
         </q-item-label>
 
         <EssentialLink
-          v-for="link in essentialLinks"
+          v-for="link in filtreLinks"
           :key="link.title"
           v-bind="link"
         />
@@ -75,12 +75,13 @@ export default defineComponent({
     EssentialLink
   },
   computed: {
-    fecha () {
-      const meses = ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Septembre', 'Octubre', 'Novembre', 'Desembre']
-      const hoy = new Date()
-      const diaSemana = hoy.toLocaleDateString('ca-CA', { weekday: 'long' })
-      const diaSemanaMayus = diaSemana.charAt(0).toUpperCase() + diaSemana.slice(1)
-      return diaSemanaMayus + ', ' + hoy.getDate() + ' de ' + meses[hoy.getMonth()] + ' de ' + hoy.getFullYear()
+    dateNow () {
+      const timeStamp = new Date(Date.now())
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+      return timeStamp.toLocaleDateString('ca-CA', options)
+    },
+    filtreLinks () {
+      return linksList.filter(l => (l.title !== 'Login' || !this.isLogged))
     }
   },
   setup () {
@@ -91,7 +92,8 @@ export default defineComponent({
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      },
+      isLogged: false
     }
   }
 })

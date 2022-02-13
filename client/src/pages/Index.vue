@@ -70,11 +70,6 @@ export default defineComponent({
   methods: {
     required (val) {
       return (val && val.length > 0) || 'Campo necesario'
-    },
-    switchVisibility () {
-      this.visibility = !this.visibility
-      this.passwordFieldType = this.visibility ? 'text' : 'password'
-      this.visibilityIcon = this.visibility ? 'visibility_off' : 'visibility'
     }
   }
 })
