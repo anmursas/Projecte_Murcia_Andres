@@ -93,11 +93,6 @@ export default defineComponent({
     required (val) {
       return (val.length > 0) || 'Camp requerit'
     },
-    switchVisibility () {
-      this.visibility = !this.visibility
-      this.password = this.visibility ? 'text' : 'password'
-      this.visibilityIcon = this.visibility ? 'visibility_off' : 'visibility'
-    },
     dniValido (val) {
       const validDni = /^[XYZ]?\d{8}[A-Z]$/
       val = val.toUpperCase()

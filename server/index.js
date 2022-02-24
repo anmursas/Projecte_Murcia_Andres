@@ -1,6 +1,6 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
+const cors = require("cors");
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -8,12 +8,13 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// simple route
+// simple route 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "HOla" });
 });
 
-require("./app/routes/tutorial.routes.js")(app);
+require("./app/routes/users.routes.js")(app);
+require("./app/routes/notes.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
