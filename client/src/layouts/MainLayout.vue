@@ -82,13 +82,6 @@ export default defineComponent({
     },
     filtreLinks () {
       return linksList.filter(l => (l.title !== 'Login' || !this.isLogged))
-    },
-    drawerState: {
-    get () {
-      return this.$store.state.showcase.drawerState
-    },
-    set (val) {
-      this.$store.commit('module-example/updateDrawerState', val)
     }
   },
   setup () {

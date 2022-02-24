@@ -1,3 +1,1 @@
-export const updateDrawerState = (state, opened) => {
-    state.drawerState = opened
-}
+export const updateDrawerState = (state, opened) => { state.drawerState = opened }

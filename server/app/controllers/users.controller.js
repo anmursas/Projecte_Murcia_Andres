@@ -12,7 +12,6 @@ exports.findAll = (req, res) => {
     else res.send(data);
   });
 };
-
 // Registar usuaris (per ara sense control de rols)
 exports.create = (req, res) => {
     // Comprovem que el JSON no està buit
